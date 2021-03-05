@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            background-color: black;
+        }
+        
+        ul {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        li {
+            list-style: none;
+            height: 40px;
+        }
+        
+        li a {
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            font-size: 20px;
+        }
+        
+        #marker {
+            position: absolute;
+            top: 0;
+            height: 40px;
+            background-color: #2196f3;
+            border-radius: 5px;
+            transition: 0.5s;
+            opacity: 0.5;
+            margin-top: -5px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <div class="nav" id="marker"></div>
+
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Team</a></li>
+        <li><a href="#">Contact</a></li>
+
+
+
+    </ul>
+    <script>
+        const marker = document.querySelector('#marker');
+        const item = document.querySelectorAll('ul li a');
+        console.log(item);
+
+        function indicator(e) {
+            marker.style.top = e.offsetTop + 'px';
+            marker.style.width = e.offsetWidth + 'px';
+        }
+        item.forEach(link => {
+            link.addEventListener('mousemove', a => {
+                indicator(a.target)
+            })
+        })
+    </script>
+</body>
+
+</html>
